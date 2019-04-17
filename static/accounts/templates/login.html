@@ -1,6 +1,3 @@
-{% extends 'accounts/base.html' %}
-{% load static %}
-{% block login %}
     <div class="page-wrapper">
         <div class="page-content--bge5" style="overflow: scroll">
             <div class="container">
@@ -8,7 +5,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="{% static 'images/icon/logo.png' %}" alt="CoolAdmin">
+                                <img src="/static/images/icon/logo.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
@@ -33,7 +30,7 @@
                                 <div class="text-center">
 
 
-                                        <a class="btn btn-social-icon btn-facebook" href="{% url "social:begin" "facebook" %}">
+                                        <a class="btn btn-social-icon btn-facebook" href="/login/facebook/">
                                             <span style="color: #4189f4" class="fa fa-facebook fa-2x"></span>
                                         </a>
                                         <a class="btn btn-social-icon btn-github" href="{% url "social:begin" "github" %}">
@@ -61,7 +58,7 @@
                             <div class="register-link">
                                 <p>
                                     Don't you have account?
-                                    <a href="{% url 'accounts:register' %}">Sign Up Here</a>
+                                    <a ui-sref="register">Sign Up Here</a>
                                 </p>
                             </div>
                         </div>
@@ -71,4 +68,3 @@
         </div>
 
     </div>
-{% endblock %}

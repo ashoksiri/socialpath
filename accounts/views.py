@@ -1,12 +1,13 @@
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 
 # Create your views here.
-@login_required
+
 def home(request):
-    return render(request,template_name='accounts/index.html',context={})
+    return render(request, template_name='accounts/base.html', context={})
 
 
 def login(request):
@@ -25,3 +26,7 @@ def acc_logout(request):
     """
     logout(request)
     return redirect('accounts:login')
+
+
+def get_pages(request):
+    return JsonResponse({'a':'success'})

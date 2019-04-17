@@ -78,11 +78,21 @@ WSGI_APPLICATION = 'socialpath.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'socialpath',#'vinci360test',
+        "USER": 'root',
+        "PASSWORD": 'Cosmos12#',
+        "HOST": "10.1.4.57"
+    },
 }
 
 
@@ -106,13 +116,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.open_id.OpenIdAuth',
-    'social_core.backends.google.GoogleOpenId',
     'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.yahoo.YahooOpenId',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.pinterest.PinterestOAuth2',
+    'social_core.backends.linkedin.LinkedinOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -146,12 +156,40 @@ LOGIN_URL = '/accounts/login/'
 
 LOGIN_REDIRECT_URL = '/'
 
+AUTH_USER_MODEL = 'accounts.User'
 
-SOCIAL_AUTH_TWITTER_KEY = '5vkfPOprtg99XlPFIk8AToNfJ'
-SOCIAL_AUTH_TWITTER_SECRET = 'rYPyKG1fo0b7LiK2f24Mk02fRHbdDznANtVJ4qFPgQwAAHjAcN'
+# SOCIAL_AUTH_TWITTER_KEY = '5vkfPOprtg99XlPFIk8AToNfJ'
+# SOCIAL_AUTH_TWITTER_SECRET = 'rYPyKG1fo0b7LiK2f24Mk02fRHbdDznANtVJ4qFPgQwAAHjAcN'
+
+SOCIAL_AUTH_TWITTER_KEY = 'Coe5KZL7Yn8ED4aMbl6NLNcMw'
+SOCIAL_AUTH_TWITTER_SECRET = '6imOn7g6R0C5kzl2gGcJoP34XBZnECobPs7f7iYKsEMcQG8z4f'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '776893489324263'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'fa4333e2a7e41d626830e1e80a9d757b'  # App Secret
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
+SOCIAL_AUTH_GITHUB_KEY = '3269421b4b48fcc80ecd'
+SOCIAL_AUTH_GITHUB_SECRET = '2b1446181de7191fd4307aad215b9407a5b1846c'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '944029664204-s6ds18jqj9d1vdq22ebds72t9c6qqr12.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'F1MHeBJGOCObpICunC395IMI'
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '816iemep7p4xfn'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'eksJR6F31Dg8vOjO'
+
+SOCIAL_AUTH_INSTAGRAM_KEY = 'e74be518abc5413c81122fee117a3dcd'
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'c824852e3fa74ba9b5716095595c28c4'
+
+SOCIAL_AUTH_PINTEREST_KEY = '5016549410327278613'
+SOCIAL_AUTH_PINTEREST_SECRET = '61781387949862c3dc4ef56f910319ff4e442e7af20a39c5db2f4ecd1c27e6ac'
+SOCIAL_AUTH_PINTEREST_SCOPE = [
+    'read_public',
+    'write_public',
+    'read_relationships',
+    'write_relationships'
+]
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_URL = '/'
+
+
+SOCIAL_AUTH_FACEBOOK_AUTH_EXTRA_ARGUMENTS = { 'display': 'popup', }

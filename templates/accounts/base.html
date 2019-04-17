@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="SocialPath">
 {% load static %}
 <head>
     <!-- Required meta tags-->
@@ -11,9 +11,6 @@
 
     <!-- Title Page-->
     <title>Login</title>
-
-    <!-- Fontfaces CSS-->
-
     <link href="{% static 'css/font-face.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
@@ -36,12 +33,12 @@
     <link href="{% static 'fontawesome/css/font-awesome.css' %}" rel="stylesheet" media="all">
 
 
+
 </head>
 
 <body class="animsition">
 
-    {% block login %}{% endblock %}
-    {% block register %}{% endblock %}
+    <div ui-view></div>
     <!-- Jquery JS-->
     <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
     <!-- Bootstrap JS-->
@@ -57,11 +54,18 @@
     <script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
     <script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
     <script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/select2/select2.min.js' %}">
-    </script>
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ashnamuh/rm-facebook-passport-redirect-hash@v1.0.0/lib.js"></script>
+    <script src="{% static 'vendor/vector-map/jquery.vmap.sampledata.js' %}"></script>
+    <script src="{% static 'vendor/vector-map/jquery.vmap.js' %}"></script>
+    <script src="{% static 'vendor/vector-map/jquery.vmap.world.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js"></script>
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
 
     <!-- Main JS-->
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'app/main.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
 
 </body>
 

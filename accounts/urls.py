@@ -7,7 +7,8 @@ app_name = "accounts"
 
 urlpatterns = [
     url(r'^$', acc_views.home, name='index'),
+    url(r'^home/$', acc_views.home, name='index'),
     url(r'^login/$', acc_views.login,name='login'),
-    url(r'^register/$', acc_views.register,name='register'),
-    url(r'^logout/$', acc_views.acc_logout,name='logout')
+    # url(r'^register/$', acc_views.register,name='register'),
+    # url(r'^logout/$', acc_views.acc_logout,name='logout')
 ]
